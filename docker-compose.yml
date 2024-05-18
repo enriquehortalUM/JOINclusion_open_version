@@ -1,0 +1,88 @@
+# Author: Annanda Sousa (annanda.sousa@gmail.com)
+
+version: '3.8'
+services:
+  db:
+    image: mariadb:10.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./database_authoring_tool:/docker-entrypoint-initdb.d"
+      - "./database_authoring_tool:/var/lib/mysql"
+
+
+  lrs:
+    image: yetanalytics/lrsql:latest
+
+    ports:
+      - "8443:8080"
+    environment:
+      LRSQL_ADMIN_USER_DEFAULT: ${LRSQL_ADMIN_USER_DEFAULT}
+      LRSQL_ADMIN_PASS_DEFAULT: ${LRSQL_ADMIN_PASS_DEFAULT}
+      LRSQL_API_KEY_DEFAULT: ${LRSQL_API_KEY_DEFAULT}
+      LRSQL_API_SECRET_DEFAULT: ${LRSQL_API_SECRET_DEFAULT}
+      LRSQL_DB_NAME: temp_db/lrsql.sqlite.db
+      LRSQL_SSL_PORT: 8843
+
+
+    volumes:
+      - "./database_lrs:/lrsql/temp_db"
+
+  joinclusion-client:
+    image: joinclusion-client:latest
+    build:
+      context: 'Dockerfiles'
+      dockerfile: 'client-Dockerfile'
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".env:/app/.env"
+    working_dir: /app
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_USER=${DB_USER}
+      - DB_DATABASE=${DB_DATABASE}
+    depends_on:
+      - db
+    command: nodemon server.js --watch
+
+
+  joinclusion-frontend:
+    image: joinclusion-frontend:latest
+    build:
+      context: 'Dockerfiles'
+      dockerfile: 'frontend-Dockerfile'
+    ports:
+      - "5173:5173"
+    volumes:
+      - ".env:/app/.env"
+    working_dir: /app
+    environment:
+      - VITE_BACKENDURL=${VITE_BACKENDURL}
+      - VITE_ENVIRONMENT=${VITE_ENVIRONMENT}
+    depends_on:
+      - joinclusion-client
+    command: npm run dev -- --host
+
+
+  joinclusion-ws:
+    image: joinclusion-ws:latest
+    build:
+      context: 'Dockerfiles'
+      dockerfile: 'ws-Dockerfile'
+    ports:
+      - "8080:8080"
+    volumes:
+      - ".env:/app/.env"
+    environment:
+      - ENVIRONMENT=${ENVIRONMENT}
+    working_dir: /app
+    command: node server_id.js

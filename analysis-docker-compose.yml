@@ -1,0 +1,14 @@
+# Author: Annanda Sousa (annanda.sousa@gmail.com)
+
+version: '3.8'
+services:
+
+  jdat:
+    image: jdat:latest
+    build:
+      context: 'JDAT'
+      dockerfile: 'Dockerfile'
+    volumes:
+      - "./JDAT/JDAT_results:/app/JDAT_results"
+    working_dir: /app
+    command: python jdat_processing/main.py

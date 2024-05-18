@@ -1,0 +1,18 @@
+FROM node
+RUN apt-get update \
+&& apt-get install -y \
+        build-essential \
+        cmake \
+        git \
+        wget \
+        unzip \
+        yasm \
+        pkg-config \
+        vim
+RUN git clone https://github.com/JohnChristidis/joinclusion-frontend.git app
+COPY ./replace_development.sh /app/replace_development.sh
+WORKDIR /app
+RUN npm install -D tailwindcss
+RUN npm install vite
+RUN npm install
+RUN ./replace_development.sh
