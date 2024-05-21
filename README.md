@@ -1,7 +1,6 @@
 # JOINclusion Open Version
 
-A repository configuring the deployment (with Docker containers) of JOINclusion project's components (Authoring tool +
-websocket + LRS).
+A repository configuring the deployment (with Docker containers) of the JOINclusion project's components (Authoring tool + WebSocket + LRS).
 
 JOINclusion Deployment includes:
 
@@ -65,4 +64,10 @@ Go to URL to access frontend:
 4. Access the produced files at the folder `JDAT/JDAT_results`
 
 -----
-Author: Annanda Sousa (annanda.sousa@gmail.com)
+Authors: 
+- [Annanda Sousa](mailto:annanda.sousa@gmail.com) (Maastricht University) - Refactoring, configuration and packaging
+- Yusuf Can Sermerci (Maastricht University) - JDAT
+- John Christidis (University of West Attica) - Serious educational game and Authoring tool
+
+
+![Funded by the European Union](https://github.com/annanda/joinclusion_open_version/blob/main/EN-Funded%20by%20the%20EU-POS.png)
