@@ -1,3 +1,7 @@
+![JOINclusion Logo](https://github.com/enriquehortalUM/JOINclusion_open_version/blob/main/Logo%2BName.png)
+
+Visit us here: [JOINclusion website](https://dke.maastrichtuniversity.nl/JOINclusion/)
+
 # JOINclusion Open Version
 
 A repository configuring the deployment (with Docker containers) of the JOINclusion project's components (Authoring tool + WebSocket + LRS).
@@ -65,9 +69,10 @@ Go to URL to access frontend:
 
 -----
 Authors: 
-- [Annanda Sousa](mailto:annanda.sousa@gmail.com) (Maastricht University) - Refactoring, configuration and packaging
+- **[Annanda Sousa](mailto:annanda.sousa@gmail.com) (Maastricht University) - Refactoring, configuration and packaging**
 - Yusuf Can Sermerci (Maastricht University) - JDAT
 - John Christidis (University of West Attica) - Serious educational game and Authoring tool
 
+-----
 
 ![Funded by the European Union](https://github.com/annanda/joinclusion_open_version/blob/main/EN-Funded%20by%20the%20EU-POS.png)
