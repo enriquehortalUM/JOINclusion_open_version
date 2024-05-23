@@ -1,17 +1,8 @@
-FROM node
-RUN apt-get update \
-&& apt-get install -y \
-        build-essential \
-        cmake \
-        git \
-        wget \
-        unzip \
-        yasm \
-        pkg-config \
-        vim
+FROM node:22-bookworm
 RUN git clone https://github.com/JohnChristidis/joinclusion-frontend.git app
-COPY ./replace_development.sh /app/replace_development.sh
 WORKDIR /app
+RUN wget https://gist.githubusercontent.com/annanda/f878820bf6409e5754c923513f60429f/raw/8e254b11e2ba0d076de225b6e2f7e5aaf451e558/replace_development.sh
+RUN chmod +x replace_development.sh
 RUN npm install -D tailwindcss
 RUN npm install vite
 RUN npm install
