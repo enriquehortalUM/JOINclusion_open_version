@@ -50,7 +50,7 @@ Go to URL to access frontend:
 
 ## Application Configured Ports
 
-1. Front-ent: 5173
+1. Front-end: 5173
 2. Maria-DB: 3306
 3. Client: 3000
 4. LRS: 8080
