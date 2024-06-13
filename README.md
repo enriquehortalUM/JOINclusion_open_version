@@ -46,7 +46,7 @@ Go to URL to access frontend:
 1. Authoring Tool Database (MariaDB)
     1. Access the .sql file at ```database_authoring_tool/```
 2. JOINclusion Game Database (LRS)
-    1. Access the .sql file at ```database_lrs/my_database.sqlite.db```
+    1. Access the .sql file at ```database_lrs/```
 
 ## Application Configured Ports
 
