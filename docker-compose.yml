@@ -33,7 +33,7 @@ services:
       - "./database_lrs:/lrsql/temp_db"
 
   joinclusion-client:
-    image: joinclusion-client:latest
+    image: ghcr.io/annanda/joinclusion-client:latest
     build:
       context: 'Dockerfiles'
       dockerfile: 'client-Dockerfile'
@@ -55,7 +55,7 @@ services:
 
 
   joinclusion-frontend:
-    image: joinclusion-frontend:latest
+    image: ghcr.io/annanda/joinclusion-frontend:latest
     build:
       context: 'Dockerfiles'
       dockerfile: 'frontend-Dockerfile'
@@ -73,7 +73,7 @@ services:
 
 
   joinclusion-ws:
-    image: joinclusion-ws:latest
+    image: ghcr.io/annanda/joinclusion-ws:latest
     build:
       context: 'Dockerfiles'
       dockerfile: 'ws-Dockerfile'
