@@ -17,7 +17,7 @@ services:
 
 
   lrs:
-    image: yetanalytics/lrsql:latest
+    image: yetanalytics/lrsql:v0.7.24
 
     ports:
       - "8443:8080"
