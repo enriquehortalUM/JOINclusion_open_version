@@ -1,6 +1,5 @@
 # Author: Annanda Sousa (annanda.sousa@gmail.com)
 
-version: '3.8'
 services:
   db:
     image: mariadb:10.6
