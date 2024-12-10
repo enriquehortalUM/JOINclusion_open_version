@@ -94,6 +94,16 @@ INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
 (5, 'teacher4', 'teacher4');
 INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
 (6, 'teacher5', 'teacher5');
+INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
+(7, 'teacher6', 'teacher6');
+INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
+(8, 'teacher7', 'teacher7');
+INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
+(9, 'teacher8', 'teacher8');
+INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
+(10, 'teacher9', 'teacher9');
+INSERT INTO `teachers` (`id`, `username`, `pwd`) VALUES
+(11, 'teacher10', 'teacher10');
 
 --
 -- Ευρετήρια για άχρηστους πίνακες
